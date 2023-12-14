@@ -95,14 +95,14 @@ def change_boundary_update_method(magnetization):
     p_boundary = 0.125
     rng = np.random.uniform(low=0, high=1)
     # Loop through edges until one is found where it can perform the selected action (add or remove)
-    add_edge = False
-    remove_edge = False
+    #add_edge = False
+    #remove_edge = False
     loop_attempts = 0  # Max attemps
-    while (not add_edge) and (not remove_edge) and (loop_attempts < 100): 
-        random_band_idx = np.random.randint(low=1, high=stripe_edges.size-1)  # Do not include end points. Should always be edges.    
-        add_edge = p_boundary > rng and stripe_edges[random_band_idx] == 0
-        remove_edge = p_boundary < rng and stripe_edges[random_band_idx] == 1
-        loop_attempts += 1
+    #while (not add_edge) and (not remove_edge) and (loop_attempts < 100): 
+    random_band_idx = np.random.randint(low=1, high=stripe_edges.size-1)  # Do not include end points. Should always be edges.    
+    add_edge = p_boundary > rng and stripe_edges[random_band_idx] == 0
+    remove_edge = p_boundary < rng and stripe_edges[random_band_idx] == 1
+    loop_attempts += 1
 
     if add_edge:
         # Add edge and calculate distance to its to neighbouring edges such that can add new magnetizations to hose
