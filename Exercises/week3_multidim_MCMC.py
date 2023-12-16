@@ -22,10 +22,6 @@ def q(x_old):
     radius = 0.5
     on_the_ball = vector / norm2(vector) * radius 
     Dx_proposed = on_the_ball * np.random.uniform(0, 1)
-    
-    #Dx_proposed = np.random.uniform(-0.5, 0.5, x_old.size)
-    #while norm2(Dx_proposed) > 0.5:
-    #    Dx_proposed = np.random.uniform(-0.5, 0.5, x_old.size)
     return x_old + Dx_proposed
 
 
@@ -69,6 +65,7 @@ def illustrate_x1_histogram(steps):
     ax.legend()
     plt.show()
 
+
 def illustrate_x1x2_histogram(steps):
     fig, ax = plt.subplots(dpi=150)
     x_hist, _ = sample_h_MCMC(steps)
@@ -110,9 +107,9 @@ def estimate_covariance_of_h(steps, x_vals=None):
 
     
 if __name__ == "__main__":
-    steps = 300_000
-    #illustrate_log_h_transient(steps)
+    steps = 100_000
+    illustrate_log_h_transient(steps)
     #illustrate_x1_histogram(steps)
-    illustrate_x1x2_histogram(steps)
+    #illustrate_x1x2_histogram(steps)
     #estimate_mean_of_h(steps=100_000)
     #estimate_covariance_of_h(steps)
